@@ -2,14 +2,18 @@ import type { MenuItem } from "../types/Index";
 
 type MenuItemProps = {
     menuItem: MenuItem;
+    addItem: (item: MenuItem) => void;
 };
 
-const MenuItem = ({ menuItem }: MenuItemProps) => {
+const MenuItem = ({ menuItem, addItem }: MenuItemProps) => {
     return (
-        <div>
-            <h1>{menuItem.name}</h1>
-            <h1>{menuItem.price}</h1>
-        </div>
+        <button
+            className="p-3 border-blue-300 hover:bg-blue-300 justify-between border-2 flex w-full rounded"
+            onClick={() => addItem(menuItem)}
+        >
+            <p>{menuItem.name}</p>
+            <p className="font-black">${menuItem.price}</p>
+        </button>
     );
 };
 

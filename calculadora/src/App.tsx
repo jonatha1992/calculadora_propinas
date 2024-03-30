@@ -23,9 +23,15 @@ function App() {
                     </div>
                 </div>
                 <div className="p-2 border-2 border-slate-300">
-                    <OrderContents order={order} deleteItem={deleteItem} />
-                    <TipPercentage setTipe={setTipe} />
-                    <OrderContentTotal order={order} tip={tip} saveOrder={saveOrder} />
+                    {order.length > 0 ? (
+                        <>
+                            <OrderContents order={order} deleteItem={deleteItem} />
+                            <TipPercentage setTipe={setTipe} />
+                            <OrderContentTotal order={order} tip={tip} saveOrder={saveOrder} />
+                        </>
+                    ) : (
+                        <p className="text-2xl font-bold text-center">No hay consumos</p>
+                    )}
                 </div>
             </main>
         </>

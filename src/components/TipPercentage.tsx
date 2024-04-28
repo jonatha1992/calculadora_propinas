@@ -16,12 +16,13 @@ const tipOptions = [
     },
 ];
 
-import { SetStateAction, Dispatch } from "react";
+import { Dispatch } from "react";
+import { OrderActions } from "../reducers/order-reducer";
 type TipPercentageProps = {
-    setTipe: Dispatch<SetStateAction<number>>;
+    dispatch: Dispatch<OrderActions>;
 };
 
-export default function TipPercentage({ setTipe }: TipPercentageProps) {
+export default function TipPercentage({ dispatch }: TipPercentageProps) {
     return (
         <div>
             <h3 className="font-bold text-2xl my-2">Propina</h3>
@@ -36,7 +37,7 @@ export default function TipPercentage({ setTipe }: TipPercentageProps) {
                             name="tip"
                             id={option.id}
                             value={option.value}
-                            onChange={(e) => setTipe(Number(e.target.value))}
+                            onChange={(e) => dispatch({ type: "add-tip", payload: { value: Number(e.target.value) } })}
                         />
                     </div>
                 ))}

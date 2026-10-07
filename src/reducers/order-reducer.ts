@@ -21,7 +21,7 @@ export const inicialState: orderState = {
 
 export const orderReducer = (state: orderState = inicialState, action: OrderActions) => {
     switch (action.type) {
-        case "add-item":
+        case "add-item": {
             const itembuscado = state.order.find((orderItem) => orderItem.id === action.payload.item.id);
             let order: OrderItem[] = [];
             if (itembuscado) {
@@ -38,21 +38,27 @@ export const orderReducer = (state: orderState = inicialState, action: OrderActi
                 ...state,
                 order: order,
             };
-        case "remover-item":
+        }
+        case "remover-item": {
             const updatedOrder = state.order.filter((orderItem) => orderItem.id !== action.payload.id);
-            state.order = updatedOrder;
-            return { ...state, order: updatedOrder };
-        case "add-tip":
+            return {
+                ...state,
+                order: updatedOrder,
+                tip: updatedOrder.length === 0 ? 0 : state.tip,
+            };
+        }
+        case "add-tip": {
             const tip = action.payload.value;
             return { ...state, tip: tip };
-        case "place-order":
+        }
+        case "place-order": {
             return {
                 ...state,
                 order: [],
                 tip: 0,
             };
+        }
         default:
+            return state;
     }
-
-    return state;
 };

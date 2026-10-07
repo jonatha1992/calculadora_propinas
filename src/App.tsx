@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import MenuItem from "./components/MenuItem.";
+import MenuItem from "./components/MenuItem";
 import OrderContents from "./components/OrderContent";
 import OrderContentTotal from "./components/OrderTotal";
 import TipPercentage from "./components/TipPercentage";
@@ -7,7 +7,7 @@ import { useOrder } from "./hooks/useMenu";
 import { inicialState, orderReducer } from "./reducers/order-reducer";
 
 function App() {
-    const { data, saveOrder } = useOrder();
+    const { data } = useOrder();
     const [state, dispatch] = useReducer(orderReducer, inicialState);
     return (
         <>
@@ -29,7 +29,7 @@ function App() {
                     {state.order.length > 0 ? (
                         <>
                             <OrderContents order={state.order} dispatch={dispatch} />
-                            <TipPercentage dispatch={dispatch} />
+                            <TipPercentage dispatch={dispatch} tip={state.tip} />
                             <OrderContentTotal order={state.order} tip={state.tip} dispatch={dispatch} />
                         </>
                     ) : (

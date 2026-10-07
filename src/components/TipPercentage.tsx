@@ -20,9 +20,10 @@ import { Dispatch } from "react";
 import { OrderActions } from "../reducers/order-reducer";
 type TipPercentageProps = {
     dispatch: Dispatch<OrderActions>;
+    tip: number;
 };
 
-export default function TipPercentage({ dispatch }: TipPercentageProps) {
+export default function TipPercentage({ dispatch, tip }: TipPercentageProps) {
     return (
         <div>
             <h3 className="font-bold text-2xl my-2">Propina</h3>
@@ -37,6 +38,7 @@ export default function TipPercentage({ dispatch }: TipPercentageProps) {
                             name="tip"
                             id={option.id}
                             value={option.value}
+                            checked={tip === option.value}
                             onChange={(e) => dispatch({ type: "add-tip", payload: { value: Number(e.target.value) } })}
                         />
                     </div>

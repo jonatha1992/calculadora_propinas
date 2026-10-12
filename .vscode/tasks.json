@@ -1,0 +1,8 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label": "npm: install", "type": "shell", "command": "npm ci", "group": "build"},
+    {"label": "npm: dev", "type": "shell", "command": "npm run dev -- --host localhost", "isBackground": true, "problemMatcher": []},
+    {"label": "npm: build", "type": "shell", "command": "npm run build", "group": "build"}
+  ]
+}

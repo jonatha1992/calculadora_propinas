@@ -39,7 +39,7 @@ export default function OrderTotal({ order, tip, dispatch }: OrderTotalProps) {
             </div>
 
             <button
-                className="p-3  mt-5 bg-black text-white text-center rounded disabled:opacity-5 w-full"
+                className="p-3  mt-5 bg-black text-white text-center rounded-sm disabled:opacity-5 w-full"
                 disabled={total === 0}
                 onClick={() => dispatch({ type: "place-order" })}
             >

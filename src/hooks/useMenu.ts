@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { menuItems } from "../data/db";
 import type { MenuItem, OrderItem } from "../types/Index";
 

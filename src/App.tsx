@@ -37,6 +37,7 @@ function App() {
                     )}
                 </div>
             </main>
+            <footer className="py-4 text-center text-xs text-slate-500">Hecho por <a href="https://tecnofusion.dev" target="_blank" rel="noopener noreferrer" className="hover:underline">tecnofusion.dev</a></footer>
         </>
     );
 }
